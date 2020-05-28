@@ -107,7 +107,7 @@ const UfoSearch = ({ dispatch }) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={filterByCategory}>
           Filter Table
         </Button>
       </form>
