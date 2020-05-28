@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+
 import './App.css';
+import SightingsBackground from './components/SightingsBackground';
+import Ufo from './components/Ufo';
 
 function App() {
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" onClick={refreshPage}>
+            UFO Sightings
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      <SightingsBackground />
+      <Ufo />
+    </>
   );
 }
 
