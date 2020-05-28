@@ -27,7 +27,7 @@ const UfoTable = ({ ufos }) => {
       </div>
     );
   return (
-    <Grid item xs={9}>
+    <Grid item xs={10}>
       <TableContainer component={Paper}>
         <Table
           className={classes.table}
