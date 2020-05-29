@@ -16,7 +16,7 @@ function App() {
         <Toolbar>
           <Tooltip title="Reload">
             <Typography variant="h6" onClick={refreshPage}>
-              UFO Sightings [Reload]
+              UFO Sightings [Reload All Data]
             </Typography>
           </Tooltip>
         </Toolbar>
