@@ -9,29 +9,10 @@ import {
   Button,
   Typography,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 180,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(1),
-  },
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '18ch',
-    },
-  },
-}));
 
 const UfoSearch = ({ dispatch }) => {
-  const classes = useStyles();
   const [query, setQuery] = useState('');
-
-  const [term, setTerm] = React.useState('datetime');
+  const [term, setTerm] = useState('datetime');
 
   const handleChange = (event) => {
     setTerm(event.target.value);
@@ -72,7 +53,7 @@ const UfoSearch = ({ dispatch }) => {
   };
 
   return (
-    <Grid item xs={2}>
+    <Grid item xs lg={3}>
       <Typography
         variant="h5"
         align="center"
@@ -82,49 +63,50 @@ const UfoSearch = ({ dispatch }) => {
         Filter Search
       </Typography>
 
-      <div>
-        <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-outlined-label">
-            Category
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-outlined-label"
-            id="demo-simple-select-outlined"
-            value={term}
-            onChange={handleChange}
-            label="Term"
-          >
-            <MenuItem value={'datetime'}>Date/Time</MenuItem>
-            <MenuItem value={'city'}>City</MenuItem>
-            <MenuItem value={'state'}>State</MenuItem>
-            <MenuItem value={'country'}>Country</MenuItem>
-            <MenuItem value={'shape'}>Shape</MenuItem>
-          </Select>
-        </FormControl>
-
-        <FormControl
-          className={classes.root}
-          noValidate
-          autoComplete="off"
-          onSubmit={filterByCategory}
+      <FormControl variant="outlined" style={{ margin: '1em' }}>
+        <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
+        <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          value={term}
+          onChange={handleChange}
+          label="Term"
+          fullWith={true}
         >
-          <TextField
-            id="outlined-basic"
-            label="Search term"
-            variant="outlined"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={filterByCategory}
-            disableElevation
-          >
-            Filter
-          </Button>
-        </FormControl>
-      </div>
+          <MenuItem value={'datetime'}>Date/Time</MenuItem>
+          <MenuItem value={'city'}>City</MenuItem>
+          <MenuItem value={'state'}>State</MenuItem>
+          <MenuItem value={'country'}>Country</MenuItem>
+          <MenuItem value={'shape'}>Shape</MenuItem>
+        </Select>
+      </FormControl>
+
+      <FormControl
+        // className={classes.root}
+        noValidate
+        autoComplete="off"
+        onSubmit={filterByCategory}
+        style={{ margin: '1em' }}
+      >
+        <TextField
+          id="outlined-basic"
+          label="Search term"
+          variant="outlined"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          fullWith={true}
+        />
+      </FormControl>
+
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={filterByCategory}
+        disableElevation
+        style={{ margin: '1rem' }}
+      >
+        Filter
+      </Button>
     </Grid>
   );
 };

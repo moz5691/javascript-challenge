@@ -16,13 +16,8 @@ const Ufo = () => {
   }, []);
 
   return (
-    <Paper variant="outlined" style={{ margin: '10px' }}>
-      <Grid
-        container
-        direction="row"
-        justify="space-evenly"
-        alignItems="flex-start"
-      >
+    <Paper style={{ margin: '2em' }}>
+      <Grid container spacing={3}>
         <UfoSearch dispatch={dispatch} />
 
         <UfoTable ufos={ufos} />

@@ -13,7 +13,7 @@ import {
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 500,
   },
 });
 
@@ -27,7 +27,7 @@ const UfoTable = ({ ufos }) => {
       </div>
     );
   return (
-    <Grid item xs={10}>
+    <Grid item xs>
       <TableContainer component={Paper}>
         <Table
           className={classes.table}
