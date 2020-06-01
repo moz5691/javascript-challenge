@@ -13,11 +13,15 @@ function App() {
   return (
     <>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar onClick={refreshPage}>
+          <img
+            src="ufo.svg"
+            alt="logo"
+            style={{ maxWidth: '40px', marginRight: '10px' }}
+          />
+
           <Tooltip title="Reload">
-            <Typography variant="h6" onClick={refreshPage}>
-              UFO Sightings [Reload All Data]
-            </Typography>
+            <Typography variant="h6">UFO Sightings</Typography>
           </Tooltip>
         </Toolbar>
       </AppBar>

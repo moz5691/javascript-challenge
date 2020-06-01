@@ -18,7 +18,7 @@ const Ufo = () => {
   return (
     <Paper style={{ margin: '2em' }}>
       <Grid container spacing={3}>
-        <UfoSearch dispatch={dispatch} />
+        <UfoSearch dispatch={dispatch} ufos={ufos} />
 
         <UfoTable ufos={ufos} />
       </Grid>

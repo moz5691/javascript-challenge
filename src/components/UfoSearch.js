@@ -8,9 +8,10 @@ import {
   TextField,
   Button,
   Typography,
+  Paper,
 } from '@material-ui/core';
 
-const UfoSearch = ({ dispatch }) => {
+const UfoSearch = ({ dispatch, ufos }) => {
   const [query, setQuery] = useState('');
   const [term, setTerm] = useState('datetime');
 
@@ -54,59 +55,72 @@ const UfoSearch = ({ dispatch }) => {
 
   return (
     <Grid item xs lg={3}>
-      <Typography
-        variant="h5"
-        align="center"
-        color="primary"
-        style={{ margin: '10px' }}
-      >
-        Filter Search
-      </Typography>
-
-      <FormControl variant="outlined" style={{ margin: '1em' }}>
-        <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={term}
-          onChange={handleChange}
-          label="Term"
-          fullWith={true}
+      <Paper style={{ width: '100%' }}>
+        <Typography
+          variant="h5"
+          align="left"
+          color="primary"
+          style={{ display: 'block', marginLeft: '1em' }}
         >
-          <MenuItem value={'datetime'}>Date/Time</MenuItem>
-          <MenuItem value={'city'}>City</MenuItem>
-          <MenuItem value={'state'}>State</MenuItem>
-          <MenuItem value={'country'}>Country</MenuItem>
-          <MenuItem value={'shape'}>Shape</MenuItem>
-        </Select>
-      </FormControl>
+          Filter Search
+        </Typography>
 
-      <FormControl
-        // className={classes.root}
-        noValidate
-        autoComplete="off"
-        onSubmit={filterByCategory}
-        style={{ margin: '1em' }}
-      >
-        <TextField
-          id="outlined-basic"
-          label="Search term"
+        <FormControl
           variant="outlined"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          fullWith={true}
-        />
-      </FormControl>
+          style={{ margin: '0.8em', position: 'relative', width: '92%' }}
+        >
+          <InputLabel id="demo-simple-select-outlined-label">
+            Category
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-outlined-label"
+            id="demo-simple-select-outlined"
+            value={term}
+            onChange={handleChange}
+            label="Term"
+          >
+            <MenuItem value={'datetime'}>Date/Time</MenuItem>
+            <MenuItem value={'city'}>City</MenuItem>
+            <MenuItem value={'state'}>State</MenuItem>
+            <MenuItem value={'country'}>Country</MenuItem>
+            <MenuItem value={'shape'}>Shape</MenuItem>
+          </Select>
+        </FormControl>
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={filterByCategory}
-        disableElevation
-        style={{ margin: '1rem' }}
-      >
-        Filter
-      </Button>
+        <FormControl
+          noValidate
+          autoComplete="off"
+          onSubmit={filterByCategory}
+          style={{ margin: '0.8em', position: 'relative', width: '92%' }}
+        >
+          <TextField
+            id="outlined-basic"
+            label="Search term"
+            variant="outlined"
+            value={query}
+            onChange={(e) => setQuery(e.target.value.toLowerCase())}
+          />
+        </FormControl>
+
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={filterByCategory}
+          disableElevation
+          style={{ margin: '0.8em', position: 'relative', width: '92%' }}
+        >
+          Filter
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => dispatch({ type: 'POPULATE_UFOS' })}
+          disableElevation
+          style={{ margin: '0.8em', position: 'relative', width: '92%' }}
+        >
+          Show All
+        </Button>
+      </Paper>
     </Grid>
   );
 };

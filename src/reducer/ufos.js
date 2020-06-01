@@ -6,7 +6,8 @@ const ufosReducer = (state, action) => {
 
   switch (action.type) {
     case 'POPULATE_UFOS':
-      return action.ufos;
+      // return action.ufos;
+      return state;
 
     case 'SEARCH_BY_DATE':
       state = state.filter((s) => s.datetime === action.query);

@@ -2,10 +2,12 @@
 
 #### Live link: https://hopeful-shirley-06a475.netlify.app
 
+![Screen Shot](/images/screen_shot.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
-### `yarn build`
+### `npm build`
